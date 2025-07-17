@@ -1,15 +1,15 @@
-# 🤖 PDF Q&A: Chatbot AI do dokumentów PDF
+# 🤖 PDF Q&A: AI Chatbot for PDF Documents
 
-Projekt pozwala wczytać dowolny plik PDF i zadawać pytania, na które odpowiada sztuczna inteligencja (GPT-3.5) z użyciem LangChain i OpenAI.
+This project allows you to load any PDF file and ask questions that are answered by a GPT-3.5 model via LangChain and OpenAI.
 
-## ✨ Co potrafi?
+## ✨ Features
 
-- Wczytuje treść pliku PDF (np. faktury, umowy, instrukcje)
-- Przetwarza tekst i dzieli na segmenty
-- Pozwala zadawać pytania w języku naturalnym (np. "Jaka jest kwota brutto?")
-- Udziela odpowiedzi na podstawie zawartości dokumentu
+- Loads the content of a PDF (e.g. invoices, contracts, manuals)
+- Splits the text into manageable chunks
+- Allows you to ask natural language questions (e.g. "What is the total amount?")
+- Returns answers based on the document’s content
 
-## 🧠 Technologie
+## 🧠 Technologies
 
 - [LangChain](https://www.langchain.com/)
 - [OpenAI GPT-3.5](https://platform.openai.com/)
@@ -19,10 +19,10 @@ Projekt pozwala wczytać dowolny plik PDF i zadawać pytania, na które odpowiad
 
 ---
 
-## 🚀 Jak uruchomić?
+## 🚀 How to run the project
 
-### 1. Sklonuj repozytorium:
+### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/twoj_uzytkownik/pdf-qa.git
+git clone https://github.com/yourusername/pdf-qa.git
 cd pdf-qa

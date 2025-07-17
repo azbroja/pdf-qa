@@ -8,36 +8,36 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-# 🔑 Pobierz klucz z .env
+# 🔑 Load OpenAI API key from .env
 openai_key = os.getenv("OPENAI_API_KEY")
 
-# 📄 Ścieżka do pliku PDF
-PDF_PATH = "1.pdf"
+# 📄 Path to the PDF file
+PDF_PATH = "your_file.pdf"
 
-# Wczytaj PDF
+# 📚 Load the PDF document
 loader = PyPDFLoader(PDF_PATH)
 pages = loader.load()
 
-# Podziel dokument
+# ✂️ Split the document into smaller chunks
 splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 documents = splitter.split_documents(pages)
 
-# Przygotuj AI
+# 🧠 Prepare prompt, model and parser
 prompt = PromptTemplate.from_template(
-    "Odpowiedz na pytanie na podstawie dokumentu: {context}\n\nPytanie: {question}"
+    "Answer the question based on the following document: {context}\n\nQuestion: {question}"
 )
 llm = ChatOpenAI(model="gpt-3.5-turbo", api_key=openai_key)
 output_parser = StrOutputParser()
 
-# Połącz prompt → model → parser
+# 🔗 Create the chain
 chain = prompt | llm | output_parser
 
-# Interaktywna sesja
-print("✅ Wczytano dokument. Zadaj pytanie lub wpisz 'exit', aby zakończyć.")
+# 🧪 Interactive loop
+print("✅ Document loaded. Ask a question or type 'exit' to quit.")
 
 while True:
-    question = input("❓ Twoje pytanie: ")
+    question = input("❓ Your question: ")
     if question.lower() in ["exit", "quit", "q"]:
         break
     response = chain.invoke({"context": documents, "question": question})
-    print("🧠 Odpowiedź AI:", response)
+    print("🧠 AI Answer:", response)
